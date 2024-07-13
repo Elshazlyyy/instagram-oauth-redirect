@@ -16,18 +16,17 @@
       return params;
     }
 
-    function redirectToApp() {
+    window.onload = function() {
       const params = getQueryParams(window.location.href);
+      console.log('Query parameters:', params);
       if (params['code']) {
         const redirectUri = `exp://192.168.0.161:8081/--/auth?code=${params['code']}`;
-        console.log('Redirect URI:', redirectUri);  // For debugging
+        console.log('Redirect URI:', redirectUri);
         window.location.replace(redirectUri);
       } else {
-        console.error('Authorization code not found in URL');
+        console.error('Authorization code not found in query parameters.');
       }
-    }
-
-    window.onload = redirectToApp;
+    };
   </script>
 </head>
 <body>
