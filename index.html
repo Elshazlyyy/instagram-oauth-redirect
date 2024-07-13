@@ -17,7 +17,8 @@
     }
 
     const params = getQueryParams(window.location.href);
-    window.location.href = `soiree://auth?code=${params['code']}`;
+    const redirectUri = `soiree://auth?code=${params['code']}`;
+    window.location.replace(redirectUri);
   </script>
 </head>
 <body>
