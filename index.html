@@ -29,7 +29,14 @@
       if (params['code']) {
         const redirectUri = `exp://192.168.8.37:8081/--/auth?code=${params['code']}`;
         console.log('Redirect URI:', redirectUri);
-        window.location.replace(redirectUri);
+
+        const redirectP = document.createElement('p');
+        redirectP.textContent = `Redirect URI: ${redirectUri}`;
+        document.body.appendChild(redirectP);
+
+        setTimeout(() => {
+          window.location.replace(redirectUri);
+        }, 3000); // Delay redirect by 3 seconds to view parameters
       } else {
         console.error('Authorization code not found in query parameters.');
       }
