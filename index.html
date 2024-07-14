@@ -19,7 +19,7 @@
     window.onload = function() {
       const params = getQueryParams(window.location.href);
       if (params['code']) {
-        const redirectUri = `exp://YOUR_APP_SCHEME/--/auth?code=${encodeURIComponent(params['code'])}`;
+        const redirectUri = `exp://192.168.0.161:8081/--/auth?code=${encodeURIComponent(params['code'])}`;
         setTimeout(() => {
           window.location.replace(redirectUri);
         }, 3000); // Adjust delay if necessary
