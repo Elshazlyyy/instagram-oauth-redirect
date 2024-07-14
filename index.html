@@ -25,6 +25,10 @@
         const redirectUri = `soiree://auth?code=${encodeURIComponent(params['code'])}`;
         console.log('Redirect URI:', redirectUri);
 
+        const redirectP = document.createElement('p');
+        redirectP.textContent = `Redirect URI: ${redirectUri}`;
+        document.body.appendChild(redirectP);
+
         setTimeout(() => {
           window.location.replace(redirectUri);
         }, 3000); // Delay redirect by 3 seconds to view parameters
