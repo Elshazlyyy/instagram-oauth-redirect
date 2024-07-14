@@ -21,23 +21,17 @@
       const params = getQueryParams(window.location.href);
       console.log('Query parameters:', params);
 
+      const paramsString = JSON.stringify(params, null, 2);
+      const p = document.createElement('p');
+      p.textContent = `Query Parameters: ${paramsString}`;
+      document.body.appendChild(p);
+
       if (params['code']) {
         const redirectUri = `exp://192.168.8.37:8081/--/auth?code=${params['code']}`;
         console.log('Redirect URI:', redirectUri);
-        
-        // Create a <p> element to display the redirect URI
-        const p = document.createElement('p');
-        p.textContent = `Redirect URI: ${redirectUri}`;
-        document.body.appendChild(p);
-
         window.location.replace(redirectUri);
       } else {
         console.error('Authorization code not found in query parameters.');
-        
-        // Create a <p> element to display the error message
-        const p = document.createElement('p');
-        p.textContent = 'Authorization code not found in query parameters.';
-        document.body.appendChild(p);
       }
     };
   </script>
