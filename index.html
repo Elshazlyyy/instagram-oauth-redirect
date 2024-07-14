@@ -22,19 +22,16 @@
       console.log('Query parameters:', params);
 
       if (params['code']) {
-        const redirectUri = `exp://192.168.8.37:8081//auth?code=${params['code']}`;
+        const redirectUri = `soiree://auth?code=${encodeURIComponent(params['code'])}`;
         console.log('Redirect URI:', redirectUri);
 
-        const encodedRedirectUri = encodeURIComponent(redirectUri);
-        console.log('Encoded Redirect URI:', encodedRedirectUri);
-
         const redirectP = document.createElement('p');
-        redirectP.textContent = `Redirect URI: ${encodedRedirectUri}`;
+        redirectP.textContent = `Redirect URI: ${redirectUri}`;
         document.body.appendChild(redirectP);
 
         setTimeout(() => {
-          window.location.replace(encodedRedirectUri);
-        }, 3000); // Delay redirect by 3 seconds to view parameters
+          window.location.replace(redirectUri);
+        }, 4000); // Delay redirect by 3 seconds to view parameters
       } else {
         console.error('Authorization code not found in query parameters.');
       }
