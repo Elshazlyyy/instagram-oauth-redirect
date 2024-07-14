@@ -20,7 +20,7 @@
       const params = getQueryParams(window.location.href);
       const pElement = document.createElement('p');
       if (params['code']) {
-        const redirectUri = `exps://192.168.8.37:8081/--/auth?code=${encodeURIComponent(params['code'])}`;
+        const redirectUri = `exp://192.168.8.37:8081/--/auth?code=${encodeURIComponent(params['code'])}`;
         pElement.textContent = `Redirecting with code: ${params['code']}`;
         setTimeout(() => {
           window.location.replace(redirectUri);
