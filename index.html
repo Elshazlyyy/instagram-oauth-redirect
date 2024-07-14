@@ -17,21 +17,12 @@
     }
 
     window.onload = function() {
-      console.log('Page loaded. Current URL:', window.location.href);
       const params = getQueryParams(window.location.href);
-      console.log('Query parameters:', params);
-
       if (params['code']) {
-        const redirectUri = `exp://192.168.0.161:8081/--/auth?code=${encodeURIComponent(params['code'])}`;
-        console.log('Redirect URI:', redirectUri);
-
-        const redirectP = document.createElement('p');
-        redirectP.textContent = `Redirect URI: ${redirectUri}`;
-        document.body.appendChild(redirectP);
-
+        const redirectUri = `exp://YOUR_APP_SCHEME/--/auth?code=${encodeURIComponent(params['code'])}`;
         setTimeout(() => {
           window.location.replace(redirectUri);
-        }, 3000); // Delay redirect by 3 seconds to view parameters
+        }, 3000); // Adjust delay if necessary
       } else {
         console.error('Authorization code not found in query parameters.');
       }
