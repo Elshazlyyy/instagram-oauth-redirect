@@ -20,7 +20,7 @@
       const params = getQueryParams(window.location.href);
       console.log('Query parameters:', params);
       if (params['code']) {
-        const redirectUri = `soiree://auth?code=${params['code']}`;
+        const redirectUri = `exp://192.168.0.161:8081/--/auth?code=${params['code']}`;
         console.log('Redirect URI:', redirectUri);
         window.location.replace(redirectUri);
       } else {
